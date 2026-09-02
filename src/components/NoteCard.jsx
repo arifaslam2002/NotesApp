@@ -1,6 +1,6 @@
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 
-const NoteCard = ({ note }) => {
+const NoteCard = ({ note,onDelete }) => {
   return (
     <div className="relative bg-white p-5 rounded-xl shadow-md border border-gray-200">
       
@@ -8,6 +8,7 @@ const NoteCard = ({ note }) => {
       <button
         type="button"
         className="absolute top-3 right-3 text-red-500 hover:text-red-700"
+        onClick={() => onDelete(note.id)}
       >
         <DeleteRoundedIcon />
       </button>
