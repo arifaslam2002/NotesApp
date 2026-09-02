@@ -1,9 +1,10 @@
 
-const NoteCard = ({title,description}) => {
+const NoteCard = ({notes}) => {
   return (
+    
     <div>
-    <h2>{title}</h2>
-    <p>{description}</p>
+    <h2>{notes.title}</h2>
+    <p>{notes.description}</p>
     </div>
   )
 }

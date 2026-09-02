@@ -1,10 +1,22 @@
+import { BrowserRouter,Routes,Route } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import NoteForm from "../components/NoteForm";
-
+import CreateNote from "./CreateNote";
+import Notes from "./Notes";
+import { useState } from "react";
 const Home = () => {
+    const[notes,setNotes] = useState([]);
+    const addNote = (newNote) =>{
+        setNotes((previousNotes) =>[...previousNotes,newNote])
+    }
   return <div>
+  <BrowserRouter>
   <Navbar />
-  <NoteForm />
+    <Routes>
+          <Route path="/" element={<CreateNote onAddNote={addNote}/>} />
+          <Route path="/create" element={<CreateNote onAddNote={addNote}/>} />
+          <Route path="/notes" element={<Notes notes={notes} />} />
+        </Routes>
+        </BrowserRouter>
   </div>;
 };
 

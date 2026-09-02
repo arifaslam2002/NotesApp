@@ -1,12 +1,26 @@
 import { useState } from "react";
 
-const NoteForm = () => {
+const NoteForm = ({onAddNote}) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
+  const newNote ={
+    id:Date.now(),
+    title,
+    description
+  }
+  onAddNote(newNote)
+    setTitle("");
+    setDescription("");
+  };
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
-      <form onSubmit={onsubmit} className="w-full max-w-lg bg-white p-6 rounded-xl shadow-md">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-lg bg-white p-6 rounded-xl shadow-md"
+      >
         <h2 className="text-2xl font-bold text-gray-800 mb-6">Create Note</h2>
 
         {/* Title */}
