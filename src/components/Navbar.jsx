@@ -2,25 +2,25 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="m-3 rounded-2xl border border-amber-600 bg-emerald-500 p-4">
-      <div className="flex items-center justify-between">
-        {/* Logo */}
-        <h1 className="text-2xl font-bold text-amber-300">Notes App</h1>
+    <nav className="bg-[#2B2438] px-6 py-4 shadow-sm">
+      <div className="mx-auto flex max-w-6xl items-center justify-between">
+        <h1 className="text-xl font-semibold tracking-tight text-[#F6F3EC]">
+          Notes
+        </h1>
 
-        {/* Navigation */}
-        <div className="flex gap-3">
+        <div className="flex gap-2">
           <Link
             to="/create"
-            className="rounded-lg bg-white px-4 py-2 text-blue-600 hover:bg-gray-100"
+            className="rounded-md px-4 py-2 text-sm font-medium text-[#F6F3EC]/80 transition hover:bg-white/10 hover:text-[#F6F3EC]"
           >
-            Create Note
+            New note
           </Link>
 
           <Link
             to="/notes"
-            className="rounded-lg bg-blue-800 px-4 py-2 text-white hover:bg-blue-900"
+            className="rounded-md bg-[#D4A017] px-4 py-2 text-sm font-medium text-[#2B2438] transition hover:bg-[#c4930f]"
           >
-            List Notes
+            My notes
           </Link>
         </div>
       </div>

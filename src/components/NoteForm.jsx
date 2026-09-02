@@ -1,77 +1,65 @@
 import { useState } from "react";
 
-const NoteForm = ({onAddNote}) => {
+const NoteForm = ({ onAddNote }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-  const newNote ={
-    id:Date.now(),
-    title,
-    description
-  }
-  onAddNote(newNote)
+    const newNote = {
+      id: Date.now(),
+      title,
+      description,
+    };
+    onAddNote(newNote);
     setTitle("");
     setDescription("");
   };
+
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
+    <div className="flex min-h-screen items-center justify-center bg-[#F6F3EC] p-6">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-lg bg-white p-6 rounded-xl shadow-md"
+        className="w-full max-w-lg border border-[#2B2438]/10 bg-white p-8 shadow-[0_1px_2px_rgba(43,36,56,0.08)]"
       >
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Create Note</h2>
+        <h2 className="mb-6 text-2xl font-semibold text-[#2B2438]">
+          New note
+        </h2>
 
-        {/* Title */}
         <div className="mb-5">
-          <label
-            htmlFor="title"
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
+          <label htmlFor="title" className="mb-2 block text-sm text-[#2B2438]/70">
             Title
           </label>
-
           <input
             type="text"
             id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="Enter note title"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg 
-                       outline-none focus:ring-2 focus:ring-blue-500 
-                       focus:border-blue-500"
+            placeholder="What's this about?"
+            className="w-full border-b border-[#2B2438]/20 bg-transparent px-1 py-2 text-[#2B2438] outline-none transition focus:border-[#D4A017]"
           />
         </div>
 
-        {/* Description */}
-        <div className="mb-5">
-          <label
-            htmlFor="desc"
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
+        <div className="mb-8">
+          <label htmlFor="desc" className="mb-2 block text-sm text-[#2B2438]/70">
             Description
           </label>
-
           <textarea
             id="desc"
             rows={5}
-            placeholder="Type your note here..."
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg
-                       outline-none resize-none focus:ring-2 
-                       focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Type your note here..."
+            className="w-full resize-none border-b border-[#2B2438]/20 bg-transparent px-1 py-2 text-[#2B2438] outline-none transition focus:border-[#D4A017]"
           />
         </div>
 
-        {/* Button */}
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2.5 rounded-lg
-                     font-medium hover:bg-blue-700 transition"
+          className="w-full bg-[#2B2438] py-3 font-medium text-[#F6F3EC] transition hover:bg-[#3a3049]"
         >
-          Add Note
+          Add note
         </button>
       </form>
     </div>
